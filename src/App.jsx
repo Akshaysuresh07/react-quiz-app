@@ -24,6 +24,7 @@ function App() {
     setQuestion(0)
     setResult(false)
     setScore(0)
+    setSelectedOption(null)
   }
  
   
@@ -46,12 +47,13 @@ function App() {
 
         <div className='rounded-2 shadow ' style={{ background: 'white', width: '650px', height: '550px ', marginLeft: '320px' }} >
 
-          {result ?
-            <Scorecard score={score} totalScore={qns.length} /> :
+          
             <div>
               <h1 className='text-center pt-3 '>Quiz app</h1>
               <div className=' mt-2 '>
-                <div className="m-3 p-3 shadow bg-dark text-center text-light rounded" style={{ height: '70px' }}>
+              {result ?
+                <Scorecard score={score} totalScore={qns.length} /> :
+               <> <div className="m-3 p-3 shadow bg-dark text-center text-light rounded" style={{ height: '70px' }}>
                   <span>{question + 1}.</span>
                   <span >{qns[question].question}</span>
                 </div>
@@ -60,16 +62,16 @@ function App() {
                     <button onClick={() => handleOption(index)} key={index} style={{ width: '400px' }} className={`btn mb-1 ${selectedOption === index ? 'btn-success' : 'btn-info'}`}>{option}</button>
                       
                   ))}
-                </div>
-                <div className='d-flex justify-content-center ' >
-                  {result ? <button onClick={handleReset} style={{ width: "170px" }} className='btn btn-outline-danger rounded  ' >Try Again
+                </div></>}
+                <div className='d-flex justify-content-center  ' >
+                  {result ? <button onClick={handleReset} style={{ width: "170px" }} className='btn btn-outline-danger rounded mt-4  ' >Try Again
                   </button> :
                     <button onClick={handleQuestion} style={{ width: "170px" }} className='btn btn-outline-success rounded  ' >Next
                     </button>}
                 </div>
               </div>
             </div>
-          }
+          
         </div>
       </div>
     </>
