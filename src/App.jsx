@@ -51,7 +51,7 @@ function App() {
             <div>
               <h1 className='text-center pt-3 '>Quiz app</h1>
               <div className=' mt-2 '>
-                <div className="m-3 p-3 shadow bg-info text-center" style={{ height: '70px' }}>
+                <div className="m-3 p-3 shadow bg-dark text-center text-light rounded" style={{ height: '70px' }}>
                   <span>{question + 1}.</span>
                   <span >{qns[question].question}</span>
                 </div>
